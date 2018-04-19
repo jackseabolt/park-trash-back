@@ -18,14 +18,32 @@ router.get('/', jsonParser, (req, res) => {
         }); 
 }); 
 
+// GET ITEMS BY CITY 
+router.get('/city/:city', jsonParser, (req, res) => {
+    return Item
+        .find({where: { city: req.params.city}})
+        .then(items => {
+            res.status(200).json({ items })
+        })
+        .catch(err => {
+            res.sendStatus(500); 
+        }); 
+}); 
+
 // CREATE A NEW ITEM
 router.post('/new', jsonParser, (req, res) => {
+    let phone = req.body.phone ? req.body.phone : null; 
+    let description = req.body.description.toLowerCase(); 
+    let street = req.body.street.toLowerCase(); 
+    let city = req.body.city.toLowerCase();
+
     return Item
         .create({
-            description: req.body.description, 
-            street: req.body.street, 
-            city: req.body.city, 
+            description, 
+            street, 
+            city, 
             desired_reply: req.body.desired_reply,
+            phone,
             completed: false,  
             date_reported: Date.now(), 
         })

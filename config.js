@@ -15,5 +15,6 @@ const TEST_DATABASE_URL = (
 module.exports = {
     PORT: process.env.PORT || 8080,
     DATABASE_URL: env === 'test' ? TEST_DATABASE_URL : DATABASE_URL,   
-    SEQUELIZE_OPTIONS: {logging: env === 'test' ? false : console.log},     
+    SEQUELIZE_OPTIONS: {logging: env === 'test' ? false : console.log}, 
+    CLIENT_ORIGIN: process.env.CLIENT_ORIGIN || 'http://localhost:4200'      
 }

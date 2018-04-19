@@ -1,17 +1,18 @@
 const express = require('express'); 
 const morgan = require('morgan'); 
-const { PORT } = require('./config'); 
+const cors = require('cors'); 
+const { PORT, CLIENT_ORIGIN } = require('./config'); 
 const { sequelize } = require('./db/sequelize'); 
 const { router: itemRouter } = require('./routers/itemRouter');
 const app = express();  
 
 
 app.use(morgan('common')); 
-// app.use(
-//     cors({
-//         origin: CLIENT_ORIGIN
-//     })
-// )
+app.use(
+    cors({
+        origin: CLIENT_ORIGIN
+    })
+)
 
 
 app.use('/item', itemRouter); 

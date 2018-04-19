@@ -1,3 +1,5 @@
+-- psql -f ./migrations/001.sql ADRESSS
+
 BEGIN; 
 
 CREATE TABLE items (
