@@ -21,7 +21,7 @@ router.get('/', jsonParser, (req, res) => {
 // GET ITEMS BY CITY 
 router.get('/city/:city', jsonParser, (req, res) => {
     return Item
-        .find({where: { city: req.params.city}})
+        .findAll({where: { city: req.params.city}})
         .then(items => {
             res.status(200).json({ items })
         })
