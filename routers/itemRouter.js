@@ -84,8 +84,8 @@ router.delete('/delete/:id', (req, res) => {
         }); 
 }); 
 
-// CHECK ITEM
-router.put('/check/:id', (req, res) => {
+// RESOLVE ITEM
+router.put('/resolve/:id', (req, res) => {
     return Item 
         .update({ completed: true, date_completed: Date.now() }, 
             { where: { id: req.params.id}})
