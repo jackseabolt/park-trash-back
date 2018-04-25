@@ -3,7 +3,7 @@ require('dotenv').config()
 const env = process.env.NODE_ENV || 'development'; 
 
 const DATABASE_URL = (
-    process.env.DATABASE_URL || 'postgres://localhost/park-trash'
+    process.env.DATABASE_URL
 ); 
 
 const TEST_DATABASE_URL = (
@@ -16,5 +16,5 @@ module.exports = {
     PORT: process.env.PORT || 8080,
     DATABASE_URL: env === 'test' ? TEST_DATABASE_URL : DATABASE_URL,   
     SEQUELIZE_OPTIONS: {logging: env === 'test' ? false : console.log}, 
-    CLIENT_ORIGIN: process.env.CLIENT_ORIGIN || 'http://localhost:4200'      
+    CLIENT_ORIGIN: 'https://jackseabolt.github.io/park-trash-front/' || 'http://localhost:4200'      
 }
