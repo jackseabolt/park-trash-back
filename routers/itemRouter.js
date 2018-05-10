@@ -32,7 +32,7 @@ router.get('/city/:city', jsonParser, (req, res) => {
 
 // CREATE A NEW ITEM
 router.post('/new', jsonParser, (req, res) => {
-    let phone = req.body.phone ? req.body.phone : null; 
+    let email = req.body.email ? req.body.email : null; 
     let description = req.body.description.toLowerCase(); 
     let street = req.body.street.toLowerCase(); 
     let city = req.body.city.toLowerCase();
@@ -43,7 +43,7 @@ router.post('/new', jsonParser, (req, res) => {
             street, 
             city, 
             desired_reply: req.body.desired_reply,
-            phone,
+            email,
             completed: false,  
             date_reported: Date.now(), 
         })
